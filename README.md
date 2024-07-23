@@ -1,0 +1,14 @@
+# RCT6K03W13-user 6.0 MRA58K 1509121480 release-keys
+- manufacturer: alco
+- platform: mt8127
+- codename: RCT6K03W13
+- flavor: RCT6K03W13-user
+- release: 6.0
+- id: MRA58K
+- incremental: 1509121480
+- tags: release-keys
+- fingerprint: RCA/RCT6K03W13/RCT6K03W13:6.0/MRA58K/1485076434:user/release-keys
+- is_ab: false
+- brand: RCA
+- branch: RCT6K03W13-user-6.0-MRA58K-1509121480-release-keys
+- repo: rca_rct6k03w13_dump

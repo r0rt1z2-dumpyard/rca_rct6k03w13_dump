@@ -1,0 +1,27 @@
+#
+# ADDITIONAL_DEFAULT_PROPERTIES
+#
+ro.mtk_key_manager_kb_path=2
+persist.service.acm.enable=0
+ro.secure=1
+ro.allow.mock.location=0
+ro.debuggable=0
+ro.zygote=zygote32
+dalvik.vm.image-dex2oat-Xms=64m
+dalvik.vm.image-dex2oat-Xmx=64m
+dalvik.vm.dex2oat-Xms=64m
+dalvik.vm.dex2oat-Xmx=512m
+ro.dalvik.vm.native.bridge=0
+debug.atrace.tags.enableflags=0
+camera.disable_zsl_mode=1
+persist.patch.version=20170309
+ro.mount.fs=EXT4
+persist.sys.usb.config=mtp
+persist.panel.orientation=0
+ro.charge.animation_rotation=90
+#
+# BOOTIMAGE_BUILD_PROPERTIES
+#
+ro.bootimage.build.date=2017年 10月 28日 星期六 00:25:48 CST
+ro.bootimage.build.date.utc=1509121548
+ro.bootimage.build.fingerprint=RCA/RCT6K03W13/RCT6K03W13:6.0/MRA58K/1485076434:user/release-keys
