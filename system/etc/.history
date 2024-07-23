@@ -1,0 +1,1419 @@
+=====IP=====
+IP: 192.168.199.213 Bcast
+ 
+=====PATCH VERSION=====
+Emdoor patch version: 20170309
+ 
+=====SRC DIRECTORY====
+/home/keyu/keyu/8127/1_MT8127_M0_MP8_0407
+ 
+=====CONFIGS====
+DDR: 
+	RS256M32LD3D2LPF_125BT//COMMON_DDR3_AUTO_8127
+LCM: 
+	KD101N37_40NA_A5_REVA_MIPI
+CAMERA:
+	gc2355_raw gc0312_yuv gc2356_raw sp0a19_yuv sp2508_raw sp0a18_yuv sp0718_yuv
+TP: 
+	CONFIG_MTK_TOUCH_T8515B_WJ626_V10
+Sensor: 
+	STK8312(G-sensor): y
+	STK8BA50(G-sensor): y
+Battery: 
+	
+Vibrator: n
+ 
+eMMC MAX CLK: 
+    max-frequency = <100000000>; max-frequency = <100000000>;
+ 
+=====GIT BRANCH====
+* RCT6K03W13-ANDROID6.0-Vxx-V2.15.50-5M08
+ 
+=====GIT COMM LOG====
+commit 42879cf61872954859aca31c0056bd14f0a7ebf5
+Author: keyu <keyu.pang@emdoor.com>
+Date:   Wed Oct 25 18:36:28 2017 +0800
+
+    [COMM][kernel]disable mmc_can_poweroff_notify,避免部分emmc 恢复出厂设置挂死
+
+commit b6dc4919dd9939ac076b0ef181ac4fc962716957
+Author: dongming <dongming.li@emdoor.com>
+Date:   Fri Mar 3 17:34:45 2017 +0800
+
+    [COMM]改善SAMSUNG PCDDR3导致7%几率出现关机后自动开机现象，未彻底解决，但是已经很大程度降低了出现几率
+
+commit d8945b1bde3075f0a849c77983cd4e570941371d
+Author: wangbin <bruce@emdoor.com>
+Date:   Thu Feb 23 19:21:09 2017 +0800
+
+    [COMM]
+    屏蔽U盘做为Internal storage 功能
+
+commit 5b07773a2daf5c14d4dfe9e312413826e58063d8
+Author: wangbin <bruce@emdoor.com>
+Date:   Thu Feb 23 10:01:38 2017 +0800
+
+    [COMM][Camera]
+    支持sp0718 + sp0a19
+
+commit 7912ee5455c046d01f025320931d85228f207a28
+Author: wangbin <bruce@emdoor.com>
+Date:   Mon Feb 13 09:59:16 2017 +0800
+
+    [COMM]
+    支持sp0a19 + sp0a18
+
+commit 98a2d2afc8da42fde9c92aaa116ebc7cbf3af0dd
+Author: wangbin <bruce@emdoor.com>
+Date:   Mon Feb 13 09:55:15 2017 +0800
+
+    [COMM]
+    解决耳机线控功能无作用问题
+
+commit 33755dfc3426a6f0ac43c56069f8436d882b1f2d
+Author: wangbin <bruce@emdoor.com>
+Date:   Tue Oct 11 17:47:25 2016 +0800
+
+    [RCT6513W87]
+    解决File Manager不能识别USB内容
+    [COMM]
+    fiexed:文件管理器中识别到的U盘符号为SD卡符号、Settings菜单>>Storage & USB U盘显示符合为SD卡
+
+commit e66d06f8823f6b14411488fe6fd23f17c3d1860a
+Author: lee <dongming.li@emdoor.com>
+Date:   Thu Nov 10 11:43:25 2016 +0800
+
+    [COMM]解决SANDISK EMMC 读数据超时，导致文件系统异常 (From For_PSKYED27_TB_C_KK_ALPS.KK1.MP10.V1.8_P46)
+        commit 78248942d4251d17f808eac0f7acb6d287aff9c8
+        Author: zzlin <zhenlin.zhang@emdoor.com>
+        Date:   Wed Sep 10 10:41:17 2014 +0800
+    
+        [COMMON]解决SANDISK EMMC 读数据超时，导致文件系统异常
+        PATCH ID:ALPS01718629(For_PSKYED27_TB_C_KK_ALPS.KK1.MP10.V1.8_P46)
+
+commit 6f85ac4ce45c9c051198fdceb543def0e4641dfc
+Author: lee <dongming.li@emdoor.com>
+Date:   Tue Nov 8 11:57:22 2016 +0800
+
+    [COMM][SURF1000][eMMC]将 pre-loader 和 lk 修改为 SDR 模式,解决开机老化过后或者直接恢复出厂设置操作，会出现永久性开不了机
+       注意其他项目需同步对比更新
+
+commit e7395781d3b56c6d8618de81eba53aebee5e2fdc
+Author: lee <dongming.li@emdoor.com>
+Date:   Wed Sep 14 21:36:40 2016 +0800
+
+    [COMM]解决sandisk emmc(SDINADF4-16G)升级后第一次写号失败，再写一次才能pass
+    
+    Conflicts:
+    	kernel-3.18/drivers/mmc/host/mediatek/mt8127/mt8127-sd.c
+
+commit b8549f52d2ed204b7c913476b75179d8cd004bb8
+Author: lee <dongming.li@emdoor.com>
+Date:   Wed Sep 7 14:00:53 2016 +0800
+
+    [COMM]解决GC5005+GC2365拍照后泛白
+
+commit d45749c5de0a008f3a764d94c941dda32f4a1664
+Author: wangbin <bruce@emdoor.com>
+Date:   Thu Sep 1 09:22:47 2016 +0800
+
+    [COMM]提交遗漏的文件
+
+commit 655f24536228a6f2734ca262dbb7773c91d281f5
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Fri Jul 22 18:10:29 2016 +0800
+
+    [COMM & RCT6303W87M7] 完善3200mAH电池曲线
+
+commit d2b3375b9af86186f7dc1ccc5616f2c3e333ac1a
+Author: wangbin <bruce@emdoor.com>
+Date:   Mon Aug 22 17:11:22 2016 +0800
+
+    [COMM][Camera]
+        Description:
+                1. 支持前摄像头摄像时使用fine Quality
+        Notes：
+                默认前摄像头是不支持，需要定义属性 ro.emdoor.fine_video_quality
+
+commit 3657bff2fb7919403b446eff245a34a7878d7f0a
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jul 27 10:23:13 2016 +0800
+
+    [COMM]兼容KD101N66_40NI_I2_MIPI，漏提交文件
+
+commit 58f30d4a1073d94f738d4a8023b7efe60d7c624f
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Fri Jul 22 17:39:37 2016 +0800
+
+    [COMM][强制更新]解决安装多个apk后，开机时间过长问题(可长达140s)
+
+commit 1892eef18ebda4be33d0363dad43a8753828bdf3
+Author: wangbin <bruce@emdoor.com>
+Date:   Wed Jul 27 17:32:35 2016 +0800
+
+    [COMM]回退camera代码，解决增加全屏模式后报错问题
+
+commit 024410c8b5cb9bc0840577ee3224acc464bb605d
+Author: colin <colin.zeng@emdoor.com>
+Date:   Wed Jul 27 15:16:32 2016 +0800
+
+    [COMMON]无HUB带键盘方案 键盘反复插拔回连慢(MTK PATCH)
+
+commit aa51ee575da76bd70b9b2a00616799cd5120822c
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Jul 19 11:57:48 2016 +0800
+
+    [COMM][强制更新]编译时支持搜索出配置的DDR参数，支持的LCM参数和Camera，并修正git log漏掉COMM字样的提交
+
+commit aca7e17618e823590a9909fb0db84f143b71111a
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Sun Jul 17 14:06:32 2016 +0800
+
+    [COMM]emdoor patch version更改为20160717
+
+commit a923b225a13cdea3fffcf545cb05831ebb8e0317
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Sat Jul 16 17:16:44 2016 +0800
+
+    [COMM]修改.history的格式
+    
+    Conflicts:
+    	device/mediatek/common/device.mk
+    	project.conf
+    	project_en.conf
+
+commit c9cc79192eda547d7d944d5e231318c741664c5b
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jul 13 22:39:31 2016 +0800
+
+    [COMM & RCT6303W87M7]调试sp0a19 和 sp2508 效果
+
+commit b76cbf165a199a3fdced2864440bd8d90c0e5235
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jul 13 22:33:29 2016 +0800
+
+    [COMM]支持LCM兼容
+
+commit e1b3f47baf14effc0b8e3ae4d12e5d46b452ca9a
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jul 13 22:29:40 2016 +0800
+
+    [COMM][stk8baxx]同步stk8312的针对休眠唤醒导致gsensor无作用的修改
+
+commit 7f320c29690ebdcba817fff3c84ac03e521e0e24
+Author: colin <colin.zeng@emdoor.com>
+Date:   Wed Jul 13 17:45:07 2016 +0800
+
+    [common]DSI_dcs_read_lcm_reg_v2 只返回两个字节 去掉这个限制
+
+commit 31ba69b95f4e3259a9ca0985a8548ec8a06171aa
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jul 13 17:23:14 2016 +0800
+
+    [COMM & RCT6303W87M7]纠正LOGO显示位置
+
+commit eb00060b92c6195db9ca859e5d7f8fb6a33dbdd2
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jul 13 10:17:22 2016 +0800
+
+    [COMM][强制更新]回退ALPS02777678(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P18) 中的如下Google Security patch
+         [Google Security Patch][CVE-2016-3759]Elevation of Privilege Vulnerability in Framework APIs
+        此patch会导致Google 开机向导最后backup时restore other device失败
+
+commit 89d3a788d5f4359b1f51c6fea2239ecc08777d5b
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu Jul 7 17:52:40 2016 +0800
+
+    [COMM][强制更新]解决T8515C 11.6寸屏闪问题，必须定义ro.emdoor.brightness_control
+            1>当电量在50%～20%区间时强制将亮度设定在75%（亮度条保持不变化，如果用户调节亮度，在75%以上时不做变化，75%以下时随实际变化）
+            2>当电量小于20%时亮度强制设定在default（亮度条保持不变化，如果用户调节亮度，在default以上时不做变化，default以下时随实际变化）
+
+commit 5226e280e625e4b3982104ceb2b55e9ad91de198
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon Jul 4 17:04:54 2016 +0800
+
+    [COMM][强制更新]ALPS02790447(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P21)
+      In mediatek drivers there is a SIOCSIWSCAN command, in which case copy_from_user() didn't check the essid_len from user input.It may result in memory overflow.
+      [Google Security Patch][CVE-2016-3760]Elevation of Privilege Vulnerability in Bluetooth
+
+commit eb5c447ea419da8968470edda26889cc5aee9368
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu Jun 30 18:38:50 2016 +0800
+
+    [COMM][强制更新]解决更新ALPS02777678(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P18)patch时，更新文件错误
+
+commit 7a94e788e29f074f09e0a5e5fc4b6bb5b3f9ae29
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jun 29 16:08:56 2016 +0800
+
+    [COMM][强制更新] 添加patch更新情况审查机制
+        1. 添加 persist.patch.version 来表明 emdoor patch
+        2. 计算器中输入74123e=显示当前软件编译环境，以及git更新记录
+
+commit c0ba405dced3458d6ec4979b9a9bed26071f7e98
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Jun 28 15:17:34 2016 +0800
+
+    [COMM][强制更新]解决连接HDMI，开关电视电源导致机器重启
+
+commit 3914c658a1262e58246b995d0d0bc2a6dd2f98a2
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Jun 28 15:02:48 2016 +0800
+
+    [COMM][强制更新]解决播放U盘中的音乐，连接HDMI，导致音乐播放停止
+
+commit fa8a89d87cc235c9c2728ef82e39473f1c66446e
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon Jun 27 20:27:03 2016 +0800
+
+    [COMM][强制更新]ALPS02777678(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P18)
+      [Google Security Patch][CVE-2016-3766]Denial of Service Vulnerability in Mediaserver
+      [Google Security Patch][CVE-2016-3751]Elevation of Privilege Vulnerability in libpng
+      [Google Security Patch][CVE-2016-3752]Elevation of Privilege Vulnerability in ChooserTarget Service
+      [Google Security Patch][CVE-2016-3758]Elevation of Privilege Vulnerability in DexClassLoader
+      [Google Security Patch][CVE-2016-2506][CVE-2016-2505][CVE-2016-2507][CVE-2016-2508][CVE-2016-3741][CVE-2016-3742][CVE-2016-3743]Remote Code Execution Vulnerability in Mediaserver
+      [Google Security Patch][CVE-2016-3764][CVE-2016-3765]Information Disclosure Vulnerability in Mediaserver
+      [Google Security Patch][CVE-2016-3761]Elevation of Privilege Vulnerability in NFC
+      [Google Security Patch][CVE-2016-3762]Elevation of Privilege Vulnerability in Sockets
+      [Google Security Patch][CVE-2016-3744]Remote Code Execution Vulnerability in Bluetooth
+      [Google Security Patch][CVE-2016-3754][CVE-2016-3755][CVE-2016-3756]Denial of Service Vulnerability in Mediaserver
+      [Google Security Patch][CVE-2016-3749]Elevation of Privilege Vulnerability in LockSettingsService
+      [Google Security Patch][CVE-2016-3750]Elevation of Privilege Vulnerability in Framework APIs
+      [Google Security Patch][CVE-2016-3763]Information Disclosure Vulnerability in Proxy Auto-Config
+      [Google Security Patch][CVE-2016-3759]Elevation of Privilege Vulnerability in Framework APIs
+      [Google Security Patch][CVE-2016-3748]Elevation of Privilege Vulnerability in Sockets
+
+commit 927adfae8819d4bd7eaf611d0f857c7ed703979a
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon Jun 27 17:56:33 2016 +0800
+
+    [COMM][强制更新]解决OTA下载完后，升级提示为"Factory data reset"
+
+commit ce3040032cd07da495969ff191420b1be1ecb7a0
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon Jun 27 17:12:38 2016 +0800
+
+    [COMM]1. 优化MyCopyService，解决MyCopyService完成拷贝后无法生成标志文件。从而导致重新开机后拷贝动作重新执行
+          2. 增加OTA升级后删除ota file的动作
+
+commit f11f42b2baf4b19aa99b2537619f23128c64e3bf
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Fri Jun 24 02:03:16 2016 +0800
+
+    [COMM][强制更新]HDMI输出时进行全屏输出
+
+commit 58fa2ff19f839764a4770103f4fb31d5ad8ce6a5
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Fri Jun 24 02:00:57 2016 +0800
+
+    [COMM]RCA品牌 HDMI 输出分辨率同MT8163
+
+commit 2a4877329b2ec5a8e6551a7f1cbddbed1970e8fe
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Fri Jun 24 01:58:13 2016 +0800
+
+    [COMM][强制更新]解决当Daydream没有进行默认时，进行start now，Settings报错
+
+commit 21cea75522dd3f3e574047ecd0060675fc597297
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Fri Jun 24 01:51:51 2016 +0800
+
+    [COMM & RCT6303W87M7]Settings->Display->HDMI 中的Video resolution更名为 HDMI resolution
+
+commit 243ecc113187ed4d087aa25f2be6a724f38ab54b
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Fri Jun 24 01:48:16 2016 +0800
+
+    [COMM & RCT6303W87M7] 删除Quick Setting中的Audio profiles中的outdoor模式
+
+commit 6e14e40b6905333966912fc48e02c7e3972296e1
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu Jun 23 14:23:37 2016 +0800
+
+    [COMMON]解决低电关机后插DC概率出现显示电量不正确问题
+
+commit cee59393640bffdb849aae4ceaad4b40f19881e7
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue Jun 21 18:33:20 2016 +0800
+
+    [COMMON]不显示第二屏开机logo解决logo切换闪屏问题
+
+commit ea164e08de7292c5c546598e7983f2c7c87eb443
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue Jun 21 17:50:05 2016 +0800
+
+    [COMMON]删除recovery中的fingerprint信息
+
+commit 0d58f6ea5dfa8b7ddfdbdf2cea264d1ff0979c4f
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue Jun 21 17:44:27 2016 +0800
+
+    [COMMON]解决Camera APP切换到全屏模式后再切换回4:3模式分辨率选项变成灰色问题
+
+commit b1d7da17ac76022dab69c0f84693b7ea85402dd8
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue Jun 21 17:41:15 2016 +0800
+
+    [COMMON]更新Google Velvet解决Google Home widget列表显示不全问题
+
+commit 8fee819b1c0fc372fb009e43443aaba1f2625d39
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon Jun 20 17:01:13 2016 +0800
+
+    [COMM][强制更新]解决关闭HDMI后，U盘无法工作。增加CONFIG_EMDOOR_HDMI_USB_SHARE_POWER_SUPPLY定义
+
+commit 3b2d3308a73986b6424948fa640f30b86ce6ebfd
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon Jun 20 16:55:48 2016 +0800
+
+    [COMM]解决充电灯充满电后拔掉DC，充电灯还常亮
+
+commit 786654a1485d5592b2b641acd1d62197cdf9afef
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon Jun 20 16:54:22 2016 +0800
+
+    [COMM][强制更新][MTK-patch]解决USB重新拔插后无法识别U盘的问题.
+
+commit ff735128631e2dc9c27675dd07bdb1d0de8911a7
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Mon Jun 20 16:48:07 2016 +0800
+
+    [COMMON]解决爱高反馈的开机或休眠唤醒WIFI回连时间长的问题
+
+commit 84f5a74d82c429a486200f48fee871fc5ce336a5
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu Jun 16 17:15:22 2016 +0800
+
+    [COMM][RCT6303W87M7]改善Camera拍摄白纸泛红
+
+commit f2f028da662a04ff80c1bfaee772ea22c6a7f936
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu Jun 16 12:02:19 2016 +0800
+
+    [COMM]合并master冲突文件
+
+commit a3c4f49484ae653bff1568e9937050f073dcc99d
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu Jun 16 11:43:34 2016 +0800
+
+    [COMM][强制更新]ALPS02762152(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P17)
+        [Revert!][Google Security Patch][CVE-2016-2497]Elevation of Privilege Vulnerability in Framework APIs
+          >>frameworks/base/core/java/android/content/IntentFilter.java
+            frameworks/base/services/core/java/com/android/server/pm/PackageManagerService.java
+        [MAL][WFC][MP1][MP7][MP9][Common] MAL system service supporting WFC DS
+          >>vendor/pskyed/libs/pskyed8127_e/libmal/libmal.so
+        灭屏状态，按power键唤醒会闪花屏或白屏
+          >>vendor/pskyed/libs/pskyed8127_e/hwcomposer.mt8127/hwcomposer.mt8127.so
+        [security issue]Potential security issues in MTK kernel driver
+          >>kernel-3.18/drivers/misc/mediatek/videocodec/mt8127/videocodec_kernel_driver.c
+        [Google Security Patch][CVE-2016-0847]Update: Elevation of Privilege Vulnerability in Telecom Component
+          >>packages/services/Telephony
+
+commit 23a57e53924b499495ef19906c50f8a5e364ee87
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu Jun 16 11:31:26 2016 +0800
+
+    [COMMON]更新thermal.conf
+
+commit a0d5695682288d07567cde2d9dc8886b3af28c7c
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jun 15 16:18:03 2016 +0800
+
+    [COMM][强制更新]ALPS02751739(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P16)
+        [GMO][ART] Enhance Dex2oat GMO whitelist mech
+        [k80TLC_GMO] The power on time is 105.51sec > 20.21sec
+        ALPS02751739 [emmc]机器连接wifi播放在线视频,系统很卡,出现自动重启现象
+        ALPS02755925 [ALCO][MT8127][M0][eMMC] 随机重启
+
+commit 6e5c983585ca5a9ddbfe2dbbf67584f86b3bd368
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jun 15 13:58:09 2016 +0800
+
+    [COMM]解决USB拔插后，大口USB连接无作用问题
+
+commit 2b2f7a89bae52d2477bf76a986e2766f5b99d44e
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon Jun 13 15:50:16 2016 +0800
+
+    [COMM][强制更新]ALPS02750296(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P14)
+        [Google Security Patch][CVE-2016-2428]Update: Remote Code Execution Vulnerability in Mediaserver
+          >>external/aac/libAACdec/src/aacdec_drc.cpp
+        [Google Security P***h][CVE-2016-2463]Remote Code Execution Vulnerability in Mediaserver
+          >>frameworks/av/media/libstagefright
+        [Google Security Patch][CVE-2016-2464]Remote Code Execution Vulnerabilities in libwebm
+          >>external/libvpx/libwebm
+
+commit 67df3d1ec4ed3b0f4f33070fb272a516a2381f91
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon Jun 13 11:50:52 2016 +0800
+
+    [COMM][强制更新][MTK-PATCH]ALPS02750310(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P13)
+        [Google Security Patch][CVE-2016-2494]Elevation of Privilege Vulnerability in SD Card Emulation Layer
+          >> system/core/sdcard/sdcard.c
+        [Google Security Patch][CVE-2016-2495]Remote Denial of Service Vulnerability in Mediaserver
+          >>frameworks/av/include/media/stagefright/DataSource.h
+      	frameworks/av/media/libstagefright/MPEG4Extractor.cpp
+      	frameworks/av/media/libstagefright/SampleTable.cpp
+      	frameworks/av/media/libstagefright/include/SampleTable.h
+        [Google Security Patch][CVE-2016-2476][CVE-2016-2477][CVE-2016-2478][CVE-2016-2479][CVE-2016-2480][CVE-2016-2481][CVE-2016-2482][CVE-2016-2483][CVE-2016-2484][CVE-2016-2485][CVE-2016-2486][CVE-2016-2487]Elevation of Privilege Vulnerability in Mediaserver
+          >>frameworks/av/media/libstagefright
+        [Google Security Patch][CVE-2016-0830]Update: Remote Denial of Service Vulnerability in Bluetooth
+          >>system/bt
+        [Google Security Patch][CVE-2016-2497]Elevation of Privilege Vulnerability in Framework APIs
+          >>frameworks/base/core/java/android/content/IntentFilter.java
+            frameworks/base/services/core/java/com/android/server/pm/PackageManagerService.java
+
+commit eac7905ce3539172a29c814e6f24792412a2d4c5
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Sun Jun 12 15:25:25 2016 +0800
+
+    [COMM]解决合并master分支后的编译错误
+
+commit 6c1b679c11ef3f76406451d5a78f0ac55268ab78
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Sun Jun 12 14:13:56 2016 +0800
+
+    [COMM]解决竖屏应用运行后，机器休眠唤醒，几率出现sensor无作用
+
+commit 0fbf93e9bf1e96f2fa89315e36029fc7d70b554d
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Sun Jun 12 14:10:36 2016 +0800
+
+    [COMM]休眠至机器低电到关机电压后接关机
+
+commit a8040611c4eb21e2f45e7c4ab954155b2f1d166c
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Sun Jun 12 14:09:02 2016 +0800
+
+    [COMM]解决低电关机后，充电电流小的问题
+
+commit 5c184e5357dc916263a01a457c0353fc925a0d97
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Sun Jun 12 11:26:02 2016 +0800
+
+    [COMM][强制更新]解决连接HDMI煲机网络视频导致机器卡LOGO
+
+commit 7183bf3e979ba2a2e111cf3d17c66d3ab4f43e50
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Sun Jun 12 11:13:25 2016 +0800
+
+    [COMM]WIFI FW 更新到a.65
+
+commit bcf1ac24c73a83655dcc7a56f4e3bb5a28ba9636
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Sun Jun 12 11:09:37 2016 +0800
+
+    [COMM][强制更新]OTA升级下载到Internal Storag，并支持Internal Storage本地升级OTA包
+
+commit 086cabca96e41878fe9a9fc64d76ea24e7e596dc
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Sun Jun 12 11:08:26 2016 +0800
+
+    [COMM]支持sp0a19 + sp2508 漏提交文件
+
+commit 0eae39ea2b42867888585abcd0c0d479e15034d4
+Author: haigang <haigang@emdoor.com>
+Date:   Tue Jun 7 18:02:08 2016 +0800
+
+    [common]添加LVDS lcd配置
+
+commit ebb5b42bd3e9d09143817d92d49f51b01d06fd8e
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Jun 7 16:02:55 2016 +0800
+
+    [COMM][强制更新][MTK PATCH]ALPS02750289(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P12)
+        [Patch after EOL]Android One项目OTA从RGK6580_A1WE_A_L升级到RGK6580_A1_M，当MTK_2SDCARD_SWAP = yes出现Phone Storage中数据丢失
+          >> frameworks/base/media/java/android/media/MediaScanner.java
+    
+        Fast dormancy function doesn't work. May cause MD current consumption
+          >> frameworks/opt/telephony/src/java/com/mediatek/internal/telephony/dataconnection/FdManager.java
+    
+        [Google Security Patch][ANDROID-28269112]Change Security Patch Level in Settings
+          >> build/core/version_defaults.mk
+    
+        [Google Security Patch][CVE-2016-2500]Information Disclosure Vulnerability in Activity Manager
+          >> frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java
+             frameworks/base/services/core/java/com/android/server/am/ProcessRecord.java
+    
+        [Google Security Patch][CVE-2016-2499]Information Disclosure Vulnerability in Mediaserver
+          >> frameworks/av/media/libstagefright/AudioSource.cpp
+
+commit 5d3ff808637ae059ef086ac6bddf0798c1bd8d5f
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue May 31 16:54:50 2016 +0800
+
+    [COMMON]解决GTS 失败：com.google.android.xts.afw.AfwRequiredAppsOverlaysTest  -- testContactsRequiredManagedProfileOverlay
+
+commit e1be9d45b7571e67e53d4c87eebb2244a88fbcad
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Mon Jun 6 16:07:27 2016 +0800
+
+    [COMMON]update thermal.conf
+
+commit 6db896db77e6d755cd1e7eb7b103b299174f39ed
+Author: colin <colin.zeng@emdoor.com>
+Date:   Fri Jun 3 18:14:46 2016 +0800
+
+    [common]随机重启
+
+commit 0ea400b08920ef6fa776b5bcf2813f10618ac772
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Sat Jun 4 14:22:54 2016 +0800
+
+    [comm][lk][kernel-3.18][mipi clock lane & data lane]
+        Description:提高mipi clock lane & data lane 的幅度,从而提高驱动能力
+
+commit b14dc3c20d33d24487ca61435de92629550f2e00
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Fri Jun 3 18:21:08 2016 +0800
+
+    [COMMON]更新MTK PATCH解决重启测试卡Logo问题
+
+commit 9a27a35e8b3caf60c797d8249858fd9ba002001a
+Author: colin <colin.zeng@emdoor.com>
+Date:   Fri Jun 3 18:14:46 2016 +0800
+
+    [common]随机重启
+
+commit 72fb8d1dde40752b7e76b2815260bf7aa5dbdb71
+Author: colin <colin.zeng@emdoor.com>
+Date:   Fri Jun 3 18:14:46 2016 +0800
+
+    [common]随机重启
+
+commit 267ba638784b1e3a1cab89336690228b2e70de3b
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jun 1 19:22:17 2016 +0800
+
+    [COMM][强制更新]添加如下属性：
+        ro.charge.animation_rotation -- 控制关机充电模式的动画方向
+        ro.boot.rotation_after_logo  -- 控制开机过程中，kernel logo->开机动画过程中的显示方向
+
+commit 3ba933b70f1dc0082b5decec7fa1eb575c8cd18f
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jun 1 19:18:49 2016 +0800
+
+    [COMM][强制更新]更新Google patch，解决zygote因signal 33导致进程退出，从而导致机器重启
+
+commit 1909e16e2b6356ae210524773ad60d2a410de0ef
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Jun 1 19:17:05 2016 +0800
+
+    [COMM][强制更新]解决首次开机因gsensor要校准，WiredAccessoryManager申请的wake lock未及时释放，从而导致机器无法进入待机模式
+
+commit 76eb27f67dfc43c96079cb127677ee1e9c575d66
+Author: colin <colin.zeng@emdoor.com>
+Date:   Wed Jun 1 16:02:01 2016 +0800
+
+    [common]第一次开机无法进入休眠
+
+commit acc99c37676ef90e35adf63e382eea97b30be7cf
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu May 26 22:32:52 2016 +0800
+
+    [COMM][ALCO]1. 允许Email，Gallery2应用存在
+                2. 删除GoogleInstaller，使用packageInstaller替代
+
+commit 57e57d16c8064488f985d6a927891079f980164a
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu May 26 22:30:49 2016 +0800
+
+    [COMM]Automatic date&time添加Use GPS-provided time项
+
+commit c3534829731c087015c31d719ed2fcc849a3b64f
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu May 26 22:29:38 2016 +0800
+
+    [COMM]删除setting>Backup&reset>DRM reset
+
+commit 8d6437014caa0020250276db26f7a70a4ad4ea55
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu May 26 22:27:39 2016 +0800
+
+    [COMM]应ALCO要求，Settings->Display->Wallpager的Google Now Launcher 强制更改为 Wallpapers
+
+commit 0d3fa2d64002f1174e47817a42cf51c9aac6573a
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu May 26 22:25:22 2016 +0800
+
+    [COMM]修改为当Home键隐藏时，Vol+ 与 Vol- 虚拟键也被隐藏
+
+commit 1ed8a31348630216f71b993d629e4a165a92b15b
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu May 26 22:24:44 2016 +0800
+
+    [COMM]Recent History 增加屏蔽部分apk，比如屏蔽高温提醒
+
+commit 6d36edfe688e4f6d11f370c27488ffaed265a287
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu May 26 22:22:07 2016 +0800
+
+    [COMM]DocumentsUI在选择拷贝动作过程中，默认开机Show Advanced功能(即默认显示所有存储路径)，并将COPY修改为PASTE
+
+commit cd2048d10ccc4a73d1dbd9abbc40e7e851378c75
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu May 26 22:21:29 2016 +0800
+
+    [COMM]修正法语物理键盘特殊元音字符无法输入
+    
+                ` then a -> à
+                ` then e -> è
+                ` then i -> ì
+                ` then o -> ò
+                ` then u -> ù
+    
+                ~ then n -> ñ
+                ~ then o -> õ
+                ~ then O -> Õ
+                ~ then a -> ã
+                ~ then A -> Ã
+
+commit ed5159495e2563348fb796092029d55d4548d025
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu May 26 22:19:18 2016 +0800
+
+    [COMM]添加config_hide_keyboard_notifcation 来控制 连接键盘时，Notification bar是否显示键盘连接的A符号
+          添加config_default_keyboard_layout 来设置键盘的默认语言
+
+commit 896f479802a8af0657abb73f62fc6c7eb788964b
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Thu May 26 22:11:47 2016 +0800
+
+    [COMM]允许Google SetupWizard后运行Provision，并在Provision中添加对默认休眠时间，字体等的设置。
+          从而解决SetupWizard后，默认休眠时间与客户要求的不一致问题
+
+commit 9ea84a7caa27a18fa933f5045900d23100731eaa
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 25 16:03:56 2016 +0800
+
+    [COMM][强制更新]添加default属性 ro.charge.animation_rotation，用来控制关机充电动画的方向
+    	注意：此属性必须以以下形式添加到default.prop,否则会出现充电动画几率出现花屏或者开机过程中出现花屏
+            比如在device.mk中添加 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.charge.animation_rotation=0
+
+commit 5343e794e091e14b1b4a49b15362a3a2f457e63e
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 25 13:55:32 2016 +0800
+
+    [COMM][强制更新]解决ro.sf.recoveryrotation无作用问题
+
+commit 5c6686347ab4a9ed635a315fb549b7fcec7f0118
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 18 11:44:36 2016 +0800
+
+    [COMM]ATA 测试SW version项时以Build number来判断
+
+commit 6a688eb062c0241fc35e3b7551831f3f04d584c1
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 18 11:38:55 2016 +0800
+
+    [COMM]Recovery增加Build number的显示
+
+commit 50cb862079b3402b71243c02c8c25853678d6392
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 18 11:34:50 2016 +0800
+
+    [COMM][强制更新]将Camera方向定义以及Camera 列表移植到项目中，方便客制化
+
+commit dc99cfc0b88c1549ae6d5155bc3f30e4e5adcb41
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 18 11:15:40 2016 +0800
+
+    [COMM][强制更新]改善Tablet默认方向机制，修改如下：
+            1. 删除ro.sf.uirotation
+            2. 使用persist.panel.orientation来定义方向，参考device/pskyed/RCT6303W87M7/device.mk
+            3. 使用ro.sf.bootanimation_rotation 与 ro.sf.revert_bootanimation_xy来控制开机动画方向
+            4. ro.sf.recoveryrotation 控制recovery显示方向
+
+commit 4c2b5ab44f6e776ab842d2a2e096f07233b183ce
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue May 24 14:29:04 2016 +0800
+
+    [COMM]解决编译错误
+
+commit 6b181ce1f43a6156265c9993127c262c61fa2c8e
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue May 24 14:27:27 2016 +0800
+
+    [COMM][强制更新][MTK PATCH]ATA HDMI测试项不支持检测HDCP KEY
+        ALPS02723070(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P9)
+
+commit c841a48f86df797ad3ffc492059e4f586fe23e32
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon May 23 19:42:08 2016 +0800
+
+    [COMM][强制更新]对POGO PIN，HUB的操作移植到USB1.1驱动中，并去除屏驱动对这部分的操作
+
+commit b09a62591b10777d0cc5a067c9fe51571bf0ddd5
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon May 23 18:11:30 2016 +0800
+
+    [COMM]添加Provision，并支持overlay中定义开机动画
+
+commit ad53df05470f1bdcf0c525e91eb462419f7ba3b9
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon May 23 18:09:37 2016 +0800
+
+    [COMM][强制更新]gsensor驱动更改为适应Android M0的sensor架构，从而解决休眠唤醒过程因gsensor驱动导致休眠无法唤醒的问题
+
+commit 018b6fb32acd22dc726ee106a0ddc3976ffd45e4
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat May 21 15:34:52 2016 +0800
+
+    [COMMON]调整CPU温度曲线
+
+commit abb2c83977ed460e43f2cc4c648815aeb5c0a523
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 25 16:03:56 2016 +0800
+
+    [COMM][强制更新]添加default属性 ro.charge.animation_rotation，用来控制关机充电动画的方向
+    	注意：此属性必须以以下形式添加到default.prop,否则会出现充电动画几率出现花屏或者开机过程中出现花屏
+            比如在device.mk中添加 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.charge.animation_rotation=0
+
+commit 534ec914bad22393145d7ddacd852839e21f5436
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 25 13:55:32 2016 +0800
+
+    [COMM][强制更新]解决ro.sf.recoveryrotation无作用问题
+
+commit 3548c51916f462ef6599706405de75f0d9d3b52b
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue May 24 19:13:06 2016 +0800
+
+    [COMMON]更新WIFI firmware
+    
+    Conflicts:
+    	vendor/mediatek/proprietary/hardware/connectivity/wlan/firmware/WIFI_RAM_CODE_8127
+
+commit 3c527e2273fb6f51dc3625647cba5744b5c02265
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue May 24 14:29:04 2016 +0800
+
+    [COMM]解决编译错误
+
+commit 441c5bc22082ca55372a8487832da8c341a523f8
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue May 24 14:27:27 2016 +0800
+
+    [COMM][强制更新][MTK PATCH]ATA HDMI测试项不支持检测HDCP KEY
+        ALPS02723070(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P9)
+
+commit e957e638c13f822269e8a1f2143bb6001069c246
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue May 24 12:02:43 2016 +0800
+
+    [COMM]添加11.5 1024x600 MIPI屏
+
+commit b1f3996b2ecb01e26dc527bef561107184147798
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Mon May 23 20:40:22 2016 +0800
+
+    [COMMON]默认开启MTP
+
+commit 17bbb87a52ae38e9a44b40cb1a4615ab374785ae
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon May 23 19:42:08 2016 +0800
+
+    [COMM][强制更新]对POGO PIN，HUB的操作移植到USB1.1驱动中，并去除屏驱动对这部分的操作
+
+commit ae133f863ba7fdb90f99273deffbaba77e778eb4
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon May 23 18:11:30 2016 +0800
+
+    [COMM]添加Provision，并支持overlay中定义开机动画
+
+commit c4aebde82d84c78169d0267b7a4dfd3345b31470
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon May 23 18:09:37 2016 +0800
+
+    [COMM][强制更新]gsensor驱动更改为适应Android M0的sensor架构，从而解决休眠唤醒过程因gsensor驱动导致休眠无法唤醒的问题
+
+commit 181213ef903c7d86b558ff9b8e40f958799a1fb4
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat May 21 15:34:30 2016 +0800
+
+    [COMMON]支持固定fingerprint
+
+commit 5b8c97ed8cb1c180423e59baa1c730b4ccb13c69
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat May 21 15:34:52 2016 +0800
+
+    [COMMON]调整CPU温度曲线
+
+commit abd73be8a59b5a845a2b7b1e66a3c4b2660096fc
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat May 21 15:39:38 2016 +0800
+
+    [COMMON]解决概率性出现系统重启问题
+
+commit 629321b61ec7e4450ff60465d0d7fdc9e9676659
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 18 11:45:41 2016 +0800
+
+    [COMM]添加storage_external_usb 字串信息
+
+commit bdb6d30927e80e7e242cf966716cf055bbb7c9d0
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 18 11:44:36 2016 +0800
+
+    [COMM]ATA 测试SW version项时以Build number来判断
+
+commit 8a7ba41abd496bd2db483e0f2fbff511325d466e
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 18 11:38:55 2016 +0800
+
+    [COMM]Recovery增加Build number的显示
+
+commit 094ba08f15277d61b1fd44123f5738758ff588e5
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 18 11:34:50 2016 +0800
+
+    [COMM][强制更新]将Camera方向定义以及Camera 列表移植到项目中，方便客制化
+
+commit fac72aaa6220a77c4269b3be7297ef9f547ab6c8
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed May 18 11:15:40 2016 +0800
+
+    [COMM][强制更新]改善Tablet默认方向机制，修改如下：
+            1. 删除ro.sf.uirotation
+            2. 使用persist.panel.orientation来定义方向，参考device/pskyed/RCT6303W87M7/device.mk
+            3. 使用ro.sf.bootanimation_rotation 与 ro.sf.revert_bootanimation_xy来控制开机动画方向
+            4. ro.sf.recoveryrotation 控制recovery显示方向
+
+commit 4e7477b0429cb0c71495c90280de63d80cda4cfe
+Author: tubao.liu <tubao.liu@emdoor.com>
+Date:   Tue May 17 19:24:01 2016 +0800
+
+        [COMMON][HDMI]fix the issue:Don't adjust volume step by step when connectting HDMI Device.
+
+commit 62a222b9c73256c1f36e079716f1e9ce3c1b7e06
+Author: tubao.liu <tubao.liu@emdoor.com>
+Date:   Tue May 17 11:32:57 2016 +0800
+
+        [COMMON][AUDIO]enable the Inter PA + HPR PA mode.
+
+commit 4d1d4723c2f80099de962e25089725990bedde99
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Mon May 16 20:05:07 2016 +0800
+
+    [COMM]改善create project脚本
+
+commit 1533cee7a1357eab504883c0863b578cfe4e2452
+Author: tubao.liu <tubao.liu@emdoor.com>
+Date:   Mon May 16 18:09:40 2016 +0800
+
+           [COMMON][LOGO]fix the wxganl_uboot.bmp & wxganl_kernel.bmp .
+
+commit edf4c85088d7a187dbfe3f8c457a3bf0ca2d2956
+Author: tubao.liu <tubao.liu@emdoor.com>
+Date:   Mon May 16 18:07:19 2016 +0800
+
+        [COMMON][flashlight]fix the compile error.
+
+commit dd3b5737a15df51fdaa442b340d58d2d032dad1e
+Author: tubao.liu <tubao.liu@emdoor.com>
+Date:   Sat May 14 18:09:40 2016 +0800
+
+        [COMMON][Gsensor]add the stk8baxx drivers.
+
+commit cdc6a0475df2cdba99c26396d4731434c8bba56f
+Author: colin <colin.zeng@emdoor.com>
+Date:   Thu May 12 10:50:46 2016 +0800
+
+    [common]1、GPS 開關多次後會導致GPS當機 2、访客用户也可以在settings下任意修改Wi-Fi的状态 3、 [Google Security P***h][CVE-2016-2459][CVE-2016-2460]Info***ation Disclosure Vulnerability in Mediaserver 4、[Google Security P***h][CVE-2016-2458]Info***ation Disclosure Vulnerability in AOSP Mail 5、  [Google Security P***h][CVE-2016-1503][CVE-2014-6060]Remote Code Execution Vulnerability in DHCPD    ------ALPS02707920(For_pskyed8127_tb_m_alps-mp-m0.mp8-V1.51_P7)
+
+commit e4c46d063bea33daffb22d249e66ddcaab6a2302
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed May 11 14:40:11 2016 +0800
+
+    [COMMON]解决竖屏录像播放方向倒置90度问题
+
+commit 0d7ffaa63e6794eb13ff4059d2dc5616ef7862b2
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed May 11 13:18:22 2016 +0800
+
+    [COMMON]Daydream设置默认为空
+
+commit 1517cbb26f3908e3e50d6da282e80a9b781921a6
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed May 11 13:14:36 2016 +0800
+
+    [COMMON]更新爱高APP-Support/VuduToGo
+
+commit 2534cf480af068972165d83b2c8f01d6205a4676
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed May 11 13:11:14 2016 +0800
+
+    [COMMON]修改GoogleHomeOEM编译配置，优化性能
+
+commit 1b330de9a5d18893798e14d293e7dd960c27bb71
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed May 11 13:09:29 2016 +0800
+
+    [COMMON]Settings中添加隐藏WIFI热点界面可以直接输入密码
+
+commit 91bb680fdb454d3429d4541a413ef68e559b6d35
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed May 11 13:08:33 2016 +0800
+
+    [COMMON]sp0a19参数的CTS规范
+
+commit 0393ed9dcc0575159f913ef2022045bf537f6dd6
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed May 11 13:07:51 2016 +0800
+
+    [COMMON]解决竖屏录像提示错误问题
+
+commit cc3e5846913046b8cce1f6aead752db286e214f3
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed May 11 12:58:31 2016 +0800
+
+    [COMMON]update gms to version r5
+
+commit 3f56219e2a9dbbe68420510ba7e4f6dc725730b3
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Mon May 9 05:45:46 2016 +0800
+
+    [COMMON]GC2355帧率提高到30
+
+commit 1ba5c851c23d688a3f69d3d8b95e742da9e37504
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Mon May 9 05:46:18 2016 +0800
+
+    [COMMON]解决XTS ManagedProvisioning失败
+
+commit 3ab13c97f983e036838099735ee62ad0386663c5
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Mon May 9 05:47:31 2016 +0800
+
+    [COMMON]解决wifi概率性出现无法连接的问题
+
+commit c55360687efaf7ca01b582c9da5f5ae9f6aadb3d
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat May 7 16:28:34 2016 +0800
+
+    [COMMON]不使用DeskClockGoogle
+
+commit 775901ee4c8a183e3981a538f37afba6b1d0bc86
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat May 7 16:25:41 2016 +0800
+
+    [COMMON]添加RCAUserManual
+
+commit 9556d9e0c723d4a31a7fb28cb588e170f2a91506
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat May 7 16:24:24 2016 +0800
+
+    [COMMON]G-sensor默认方向设置为横屏
+
+commit d37d2d2e0dc0a975c946d2649fe2fba9ea5e9050
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat May 7 16:23:43 2016 +0800
+
+    [COMMON]状态栏时间显示AM/PM
+
+commit c71402f4b63e2cb65b54a8b9e9d16b1b77692c31
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat May 7 16:20:14 2016 +0800
+
+    [COMMON]添加android.software.managed_users feature
+
+commit 479004b0200f5877bf3b001a1fab7e7184edccc8
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat May 7 16:19:34 2016 +0800
+
+    [COMMON]解决GTS ManagedProvisioni失败
+
+commit d3b41395621631e7ae9fb39fca6f340b964a646f
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat May 7 16:12:04 2016 +0800
+
+    [COMMON]移植MT8127 L0 GC2355 HAL代码
+
+commit aaf732025d6e28dde6204ec9cd90f1c6474d5f48
+Author: zhenlin.zhang <zhenglin.zhang@emdoor.com>
+Date:   Fri May 6 15:54:33 2016 +0800
+
+    [COMM][kernel][battery charge]
+    Description:添加DC 充电曲线光滑算法,避免由于电池本体原因,导致充电停留在某个电量植太长时间
+
+commit 6d4ad5f0423adaa6aea05a13798242c2a01e7268
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu May 5 16:50:32 2016 +0800
+
+    [COMMON]DataUsage同ALCO需求
+
+commit 8eee9e3302ddef40faf52fdf1588a7474f9240cc
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu May 5 16:48:32 2016 +0800
+
+    [COMMON]蓝牙设备类型修改为PC
+
+commit 03a7f290bed0bd8140a3376f633e025845b2b18f
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu May 5 16:48:06 2016 +0800
+
+    [COMMON]使用Tablet版本SetupWizard
+
+commit 21cde6b9efa347c9d4ec225184ee7ec522376c4b
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu May 5 16:47:17 2016 +0800
+
+    [COMMON]Gallery适配横屏模式
+
+commit 39799cdb4b47df3cee8db0069eb78991b18b143c
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu May 5 16:46:18 2016 +0800
+
+    [COMMON]移植MT8163 M0 Camera APP代码
+
+commit ea23ccc7ce3df6941f752af03eb3c10fe9ddf900
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue May 3 19:53:49 2016 +0800
+
+    [COMM]解决预装Target APP从Play Store更新后，Target运行报错
+
+commit f092c06f5b2a681c320d764800fb85c6cd64a6c4
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue May 3 19:53:02 2016 +0800
+
+    [COMM]隐藏Settings->APP->预置安装可卸载的apk中的Change storage功能
+
+commit c5c345c8c2977158e8d0fad37ade8c508a6c5670
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue May 3 19:22:40 2016 +0800
+
+    [COMM]Camera拍照后强制使用Gallery开启浏览
+
+commit 9ba104b00511a64bd30ad88099367661ff1e3308
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue May 3 19:53:49 2016 +0800
+
+    [COMM]解决预装Target APP从Play Store更新后，Target运行报错
+
+commit 968a7f273a30fb595f42b79ea133d6de8a8459ed
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue May 3 19:53:02 2016 +0800
+
+    [COMM]隐藏Settings->APP->预置安装可卸载的apk中的Change storage功能
+
+commit b0907d24740ee7b784e7dafb59021c42c07dedf1
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue May 3 19:22:40 2016 +0800
+
+    [COMM]Camera拍照后强制使用Gallery开启浏览
+
+commit 328315f5aeb1be97a00b64deff75e82045b995cc
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue May 3 18:56:46 2016 +0800
+
+    [COMMON]GC2355 CTS FAIL:android.hardware.camera2.cts.RecordingTest --testBasicRecording /android.hardware.camera2.cts.RecordingTest --testRecordingFromPersistentSurface
+
+commit 54c9aacae9438a0a09666cecb08c7dd5e5b4ed85
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue May 3 18:54:47 2016 +0800
+
+    [COMMON]提高LXJC070WHM270_18A_RGB clock解决CTS FAIL:android.view.cts.DisplayRefreshRateTest --testRefreshRate
+
+commit 9eec654475f07ec72365471115fca098d000b20b
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Fri Apr 29 14:35:21 2016 +0800
+
+    [COMMON]英语模式下设置背光永不超时切换成中文打开display setting报错
+
+commit efc366615afaff9d15258484116e71c828a3b2ec
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu Apr 28 14:35:41 2016 +0800
+
+    [COMMON]RCA 1024*600 logo
+
+commit c2a7019c2f5ec3cc4326d26a9425be9eed29f0a2
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed Apr 27 20:08:15 2016 +0800
+
+    [COMMON]添加SettingsProvider缺少资源
+
+commit ad3fbb077a8667760e6f20395684ca26ad35e495
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed Apr 27 20:07:41 2016 +0800
+
+    [COMMON]GC0312编译失败
+
+commit 7d00bd3aebd79b5420c18f76c0d6086dd5d93394
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 19:14:16 2016 +0800
+
+    [COMM]添加def_hdmi_lcd_timeout，解决编译错误
+
+commit 961496cb9bcfcf6a997d90728c8749bd74cfead4
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 18:44:44 2016 +0800
+
+    [COMM]解决编译错误，以及其他语言选择never timeout时报错
+    
+    Conflicts:
+    	packages/apps/Settings/res/values/strings.xml
+
+commit 9d5dbacd029dd7eeb1f3ac6f36fcda81cabf9c09
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 19:14:16 2016 +0800
+
+    [COMM]添加def_hdmi_lcd_timeout，解决编译错误
+
+commit a5908a7348ef2803ca11bbd01014f6b0fffb21d0
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Apr 26 19:50:56 2016 +0800
+
+    [COMM] 鼠标右键定义为返回
+
+commit 4abb986ea0a189fc0e7d5a82c417ea29bc47a576
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 18:44:44 2016 +0800
+
+    [COMM]解决编译错误，以及其他语言选择never timeout时报错
+
+commit 9408d0f1b4c9570554a25630e031cca1ce66b456
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 17:55:41 2016 +0800
+
+    [COMM]添加自动恢复出厂设置功能，计算器中输入 4299589958sin 开启
+    
+    Conflicts:
+    	bootable/recovery/recovery.cpp
+
+commit 69e7a9d6dd44bbdbaa8843331c460d5ed32066fd
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 15:47:51 2016 +0800
+
+    [COMM]添加MyCopyService，支持预置文件拷贝
+
+commit 7b1327b257f02d3926c0dcd0ef1a24d02aced9db
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 17:55:41 2016 +0800
+
+    [COMM]添加自动恢复出厂设置功能，计算器中输入 4299589958sin 开启
+
+commit a6c9f2cd0eb60dd920c6123def45dad935544d27
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 15:47:51 2016 +0800
+
+    [COMM]添加MyCopyService，支持预置文件拷贝
+
+commit eca6114c78fd1fa61fd7762472ef4b1e10cfc016
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 15:40:22 2016 +0800
+
+    [COMM]添加ALCO在Settings->Device Info中的kernel version中显示开机次数。
+          大于3次以3次计数
+
+commit b48fab1011450e26d5ccb44621e13af122cbc1f1
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 15:03:09 2016 +0800
+
+    [COMM]移除冗余字符串信息
+    
+    Conflicts:
+    	packages/apps/Settings/res/values/strings.xml
+
+commit f5b9fb681511f4541e2aa354b8f9c7e5e7bd04e3
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Apr 26 22:14:54 2016 +0800
+
+    [COMM]添加Video player Daydream功能
+
+commit 059f1baf1becb1ffaba0540a5e67ed38ab3d2c44
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 15:04:00 2016 +0800
+
+    [COMM]添加HDMI Screen time out功能
+
+commit ae27b6450a7933713e180122f754aaef9d3f230f
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Wed Apr 27 15:04:00 2016 +0800
+
+    [COMM]添加HDMI Screen time out功能
+
+commit f582751962db86621e8aea86af8e90fd674bacd9
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Apr 26 22:07:34 2016 +0800
+
+    [COMM]添加Gsensor校准
+
+commit 4a7a5f1b35f32e424e383503f535c71f64aa668f
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Apr 26 22:07:34 2016 +0800
+
+    [COMM]添加Gsensor校准
+
+commit d427197246e7b0b8f9680292d0d1cd9957e4b057
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Apr 26 19:50:56 2016 +0800
+
+    [COMM] 鼠标右键定义为返回
+
+commit 3df56b88ab0cde3c94e72d565e8cc30b6fa02a28
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Apr 26 18:47:25 2016 +0800
+
+    [COMM]vendor/pskyed/libs/下的库文件共用
+
+commit 0f973377578c3e0fd304e17adb7e15eb05fb269d
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Apr 26 19:07:48 2016 +0800
+
+    [COMM]解决编译错误
+
+commit d9ee1c8b8f93e8ca9d7a51b1b813f6ae7f6105ed
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Apr 26 19:07:48 2016 +0800
+
+    [COMM]解决编译错误
+
+commit a20ed4a547985d9d5337f759d454da3c6846d186
+Author: dongming.li <dongming.li@emdoor.com>
+Date:   Tue Apr 26 18:47:25 2016 +0800
+
+    [COMM]vendor/pskyed/libs/下的库文件共用
+
+commit 2b8e76a71a37932e7dd54f32c053562bba684f20
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat Apr 23 11:21:06 2016 +0800
+
+    [COMMON]Settings添加所需字符串
+
+commit b426a14f3d5eed8d5e953cbd7602fcb32f14f1cb
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat Apr 23 13:41:30 2016 +0800
+
+    [COMMON]解决MTK_BESSURROUND_SUPPORT=false时Settings中的SoundEnhancement打开报错的问题
+
+commit c1662df762da474e87a951b8b4e4a448cc22bbe2
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat Apr 23 11:01:56 2016 +0800
+
+    [COMMON]
+    1.Camera默认横屏显示
+    2.禁止自动隐藏camera app
+    3.解决FileManager选择Drive打开pdf失败问题
+    4.解决无法打开apk进行安装的问题
+
+commit 4709e01142fc39f51cf5ca13fe8d4720fd1012a1
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat Apr 23 11:00:54 2016 +0800
+
+    [COMMON]解决图库中无图片时显示一条竖线
+
+commit ce6d5c77184ee509913a5089880c9232dbf62932
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Fri Apr 22 15:25:06 2016 +0800
+
+    [COMMON]add gc0312 hal
+
+commit 9d75924b2ea9f4969682b4ca753edef5553db652
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Fri Apr 22 14:53:30 2016 +0800
+
+    [COMMON]secure boot comnom patch
+
+commit ae6084b37127c6ada52878d3942fc269e048b09c
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue Apr 19 22:12:13 2016 +0800
+
+    [COMMON]项目名称支'-'字符
+
+commit 6cad68f560a02b7277db3dc75e9cba7d7735ecb4
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue Apr 19 22:14:16 2016 +0800
+
+    [COMMON]工具脚本
+
+commit 714c92dac42169b78335b1dcd600073496952e2e
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue Apr 19 19:08:40 2016 +0800
+
+    [COMMON]添加缺失的wxganl logo
+
+commit 79421baa2d69126c7bdfba959430e21801537e38
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Tue Apr 19 10:56:36 2016 +0800
+
+    [COMMON]Update GMS to 6.0_r3
+
+commit b59bfd7d6ab1a266d2fa898e709f64c46197dfe7
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Sat Apr 16 15:38:23 2016 +0800
+
+    [COMMON]GC2355 RAW HAL
+
+commit 44af17b3205f57f9728ffe737b071f13b9b6b56a
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Fri Apr 15 21:21:13 2016 +0800
+
+    [COMMON][EMMC]调整system分区为2560M，cache分区512M
+
+commit 3c521cf0a44ebf4cd432b941ec58789f52997c54
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu Apr 14 12:39:29 2016 +0800
+
+    [COMMON]Screenshot and volume button
+
+commit 30d5234362a797ac942996cb4edae505bd848e56
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu Apr 14 11:58:23 2016 +0800
+
+    [COMMON]ALCO Settings共性修改
+
+commit 92df1d428a2909a514a4caca055a9ada00c6f15b
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu Apr 14 11:53:31 2016 +0800
+
+    [COMMON]Settings中隐藏相关测试应用
+
+commit 5c042636a7004e7992fc161eb75231eef01d1dc5
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu Apr 14 11:46:08 2016 +0800
+
+    [COMMON]计算器中输入代码打开特定应用，96321 mtklog，0769e alcotablettest,0755e engineermode,83991906 autoreboot
+
+commit e4d9fa8787af7fccf7661b2866369ee4686f6666
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu Apr 14 11:41:22 2016 +0800
+
+    [COMMON]同步亿道编译配置
+
+commit ccde86e0590296fa60c1d157dcf61846bcb6ea2b
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Thu Apr 14 11:39:09 2016 +0800
+
+    [COMMON]删除无需上传的文件
+
+commit 42ac45228a436cf399988e8f04cfc8869f729cd6
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed Apr 13 21:48:03 2016 +0800
+
+    [COMMON]add alco vendor apps
+
+commit 0b79dc75888d107ad54e3348de96e0595f90fa1e
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed Apr 13 21:41:29 2016 +0800
+
+    [COMMON]add GMS package 6.0_r2
+
+commit 8cef99980c84c96da88c31d137cc62a72959290f
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed Apr 13 21:32:20 2016 +0800
+
+    [COMMON]添加AutoReboot,GoogleHomeOEM,UpdateService
+
+commit 8584a92d8abcb4716a9e7248f87fa59c418ebb77
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed Apr 13 21:27:22 2016 +0800
+
+    [COMMON]Prebuilt APK生成odex以提高首次开机速度
+
+commit be5d27a03b3bb4462f26799686d3f50569517888
+Author: linshixiong <linsx.lin@emdoor.com>
+Date:   Wed Apr 13 21:24:57 2016 +0800
+
+    [COMMON]
+    1.添加江波龙LD3E508G参数
+    2.修改MLC默认system分区大小为2.5GB
